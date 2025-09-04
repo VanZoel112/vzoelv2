@@ -33,7 +33,7 @@
   "blacklist": {
     "description": "Daftar ID yang tidak diizinkan untuk fitur tertentu (misal: gcast).",
     "groups": [
-      -1003016680224
+      -1003016680224,
       -1002877961538
     ],
     "channels": [],
@@ -43,8 +43,8 @@
     "use_database": false,
     "database_url": ""
   },
-     "bot_settings": {
+  "bot_settings": {
     "command_prefixes": ["/", "!", "."],
     "private_only": false
-  },
+  }
 }
