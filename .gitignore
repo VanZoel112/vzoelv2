@@ -1,0 +1,279 @@
+# VZOEL ASSISTANT v2 - Git Ignore Configuration
+# Security and cleanup rules untuk production deployment
+# Created by: Vzoel Fox's
+
+# ==========================================
+# ENVIRONMENT & SECURITY FILES
+# ==========================================
+# Never commit sensitive configuration files
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+
+# API keys and secrets
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Configuration files with sensitive data
+config.json
+config.yml
+config.yaml
+*.conf
+
+# ==========================================
+# PYTHON SPECIFIC
+# ==========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# ==========================================
+# TELEGRAM BOT SPECIFIC
+# ==========================================
+# Session files (contain authentication data)
+*.session
+*.session-journal
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Bot data and logs
+logs/
+*.log
+*.log.*
+log_*.txt
+
+# User data and databases
+user_data/
+database/
+data/
+*.json.backup
+
+# Media and temporary files
+downloads/
+uploads/
+temp/
+tmp/
+cache/
+.cache/
+
+# ==========================================
+# DEVELOPMENT & IDE FILES
+# ==========================================
+# VS Code
+.vscode/
+.history/
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ==========================================
+# SYSTEM FILES
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==========================================
+# BACKUP & TEMPORARY FILES
+# ==========================================
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+*.tmp
+
+# Archive files (unless specifically needed)
+*.zip
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+
+# ==========================================
+# DOCKER & CONTAINERS
+# ==========================================
+# Docker
+.docker/
+docker-compose.override.yml
+.dockerignore
+
+# ==========================================
+# MONITORING & ANALYTICS
+# ==========================================
+# Error tracking
+.sentry-native/
+
+# Profiling
+*.prof
+*.pstats
+
+# ==========================================
+# WEB ASSETS (if applicable)
+# ==========================================
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Static files
+static/
+media/
+
+# ==========================================
+# DOCUMENTATION BUILD
+# ==========================================
+# Sphinx
+docs/_build/
+docs/build/
+
+# ==========================================
+# CUSTOM PROJECT IGNORES
+# ==========================================
+# Add your custom ignore patterns here
+# Example: specific bot features or modules
+# custom_module/
+# special_files/
+
+# Test files and data
+test_*.py
+*_test.py
+test_data/
+fixtures/
+
+# Migration files (if using databases)
+migrations/
+alembic/
+
+# SSL certificates and keys
+*.crt
+*.key
+*.pem
+ssl/
+certs/
+
+# ==========================================
+# SECURITY NOTES
+# ==========================================
+# This .gitignore is designed to prevent accidental
+# commits of sensitive information. Always review
+# your commits before pushing to ensure no secrets
+# are included.
+#
+# Remember to:
+# 1. Never commit API keys, tokens, or passwords
+# 2. Use environment variables for sensitive config
+# 3. Regularly audit your repository for leaked secrets
+# 4. Use tools like git-secrets for additional protection
+#
+# For more security best practices, see:
+# https://github.com/VanZoel112/vzoelv2/blob/main/SECURITY.md
