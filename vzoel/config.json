@@ -1,0 +1,50 @@
+{
+  "_comment": "Konfigurasi utama untuk VZOEL ASSISTANT. Dibuat oleh Vzoel Fox's.",
+  "last_updated": "2025-09-04T20:06:10+07:00",
+  "project_info": {
+    "project_name": "VZOEL ASSISTANT",
+    "version": "0.0.0.69",
+    "description": "VZOEL ASSISTANT SIAP MEMBANTU"
+  },
+  "branding_info": {
+    "assistant_display_name": "𝙑𝙕𝙊𝙀𝙇 𝘼𝙎𝙎𝙄𝙎𝙏𝘼𝙉𝙏",
+    "creator_name": "Vzoel Fox's",
+    "footer_text": "Founder : Vzoel Fox's"
+  },
+  "telegram_api": {
+    "api_id": 29919905,
+    "api_hash": "717957f0e3ae20a7db004d08b66bfd30"
+  },
+  "bot_credentials": {
+    "bot_token": "8492488243:AAHnc_ZqtRyCgYJlUkOQZHsMNrB_R6xA7Ok",
+    "phone_number": "+6283199218067",
+    "session_name": "vzoel_assistant_session"
+  },
+  "owner_info": {
+    "founder_id": 7847025168,
+    "developer_ids": [
+      7847025168
+    ],
+    "sudo_user_ids": []
+  },
+  "logging": {
+    "log_group_id": -1003016680224
+  },
+  "blacklist": {
+    "description": "Daftar ID yang tidak diizinkan untuk fitur tertentu (misal: gcast).",
+    "groups": [
+      -1003016680224
+      -1002877961538
+    ],
+    "channels": [],
+    "users": []
+  },
+  "database": {
+    "use_database": false,
+    "database_url": ""
+  },
+     "bot_settings": {
+    "command_prefixes": ["/", "!", "."],
+    "private_only": false
+  },
+}
