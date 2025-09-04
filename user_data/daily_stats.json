@@ -1,0 +1,16 @@
+{
+  "2025-09-05": {
+    "total_commands": 2,
+    "successful_commands": 2,
+    "failed_commands": 0,
+    "unique_users": [],
+    "commands_breakdown": {
+      "/test": {
+        "count": 2,
+        "success": 2,
+        "failed": 0
+      }
+    },
+    "active_users": []
+  }
+}

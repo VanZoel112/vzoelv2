@@ -1,0 +1,60 @@
+{
+  "12345": {
+    "user_info": {
+      "id": 12345,
+      "first_name": "Test",
+      "last_name": "User",
+      "username": "testuser",
+      "is_bot": false,
+      "first_seen": "2025-09-05T03:18:09.631607"
+    },
+    "statistics": {
+      "total_commands": 2,
+      "successful_commands": 2,
+      "failed_commands": 0,
+      "last_activity": "2025-09-05T03:18:39.148136",
+      "commands_used": {
+        "/test": {
+          "count": 2,
+          "success": 2,
+          "failed": 0
+        }
+      },
+      "chat_interactions": {
+        "-12345": {
+          "chat_info": {
+            "id": -12345,
+            "title": "Test Group",
+            "type": "group",
+            "username": null
+          },
+          "interaction_count": 2,
+          "last_interaction": "2025-09-05T03:18:39.148136"
+        }
+      },
+      "daily_activity": {
+        "2025-09-05": {
+          "commands": 2,
+          "success": 2,
+          "failed": 0
+        }
+      }
+    },
+    "activity_history": [
+      {
+        "timestamp": "2025-09-05T03:18:09.631607",
+        "command": "/test",
+        "chat_id": -12345,
+        "chat_type": "group",
+        "success": true
+      },
+      {
+        "timestamp": "2025-09-05T03:18:39.148136",
+        "command": "/test",
+        "chat_id": -12345,
+        "chat_type": "group",
+        "success": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+2025-09-05 03:18:09,626 | INFO     | VzoelAssistant | Test info message
+2025-09-05 03:18:09,628 | WARNING  | VzoelAssistant | Test warning message
+2025-09-05 03:18:09,629 | ERROR    | VzoelAssistant | Test error message
+2025-09-05 03:18:09,630 | INFO     | VzoelAssistant | SUCCESS: Test success message
+2025-09-05 03:18:09,644 | INFO     | VzoelAssistant | Health check at 2025-09-05T03:18:09.586991
+2025-09-05 03:18:09,686 | ERROR    | VzoelAssistant | EMERGENCY: Test emergency message
+2025-09-05 03:18:39,144 | INFO     | VzoelAssistant | Test info message
+2025-09-05 03:18:39,145 | WARNING  | VzoelAssistant | Test warning message
+2025-09-05 03:18:39,146 | ERROR    | VzoelAssistant | Test error message
+2025-09-05 03:18:39,147 | INFO     | VzoelAssistant | SUCCESS: Test success message
+2025-09-05 03:18:39,152 | INFO     | VzoelAssistant | Health check at 2025-09-05T03:18:39.136641
+2025-09-05 03:18:39,181 | ERROR    | VzoelAssistant | EMERGENCY: Test emergency message
