@@ -3,13 +3,12 @@
 import json
 from pyrogram.types import Message
 
-# Import semua helper kita
+# Import sistem terintegrasi premium
 from helper_client import VzoelClient
 from helper_cmd_handler import CMD_HANDLER, get_command, get_arguments
 from helper_config import CONFIG, CONFIG_JSON_PATH
 from helper_logger import LOGGER
-from helper_vzoel_emojis import EMOJIS
-from helper_vzoel_fonts import style_text
+from utils.assets import vzoel_assets, premium_emoji, bold, italic, monospace
 
 def save_config_changes():
     """Fungsi sakti buat nyimpen perubahan blacklist ke config.json."""
@@ -56,19 +55,24 @@ async def addbl_handler(client: VzoelClient, message: Message):
         else:
             chat_id_to_add = message.chat.id
     except ValueError:
-        await message.reply_text(f"{EMOJIS.get_char('merah')} ID chat tidak valid, Master.")
+        merah_emoji = vzoel_assets.get_emoji('merah', premium_format=True)
+        await message.reply_text(f"{merah_emoji} ID chat tidak valid, Master.")
         return
 
     if chat_id_to_add in CONFIG.blacklist.groups:
-        await message.reply_text(f"{EMOJIS.get_char('kuning')} Chat ini sudah ada di dalam blacklist.")
+        kuning_emoji = vzoel_assets.get_emoji('kuning', premium_format=True)
+        await message.reply_text(f"{kuning_emoji} Chat ini sudah ada di dalam blacklist.")
         return
 
     CONFIG.blacklist.groups.append(chat_id_to_add)
     
     if save_config_changes():
+        adder2_emoji = vzoel_assets.get_emoji('adder2', premium_format=True)
+        aktif_emoji = vzoel_assets.get_emoji('aktif', premium_format=True)
+        
         response = (
-            f"{EMOJIS.get_char('adder2')} **BLACKLIST DITAMBAHKAN**\n\n"
-            f"{EMOJIS.get_char('aktif')} **Proteksi Gcast Aktif**\n"
+            f"{adder2_emoji} **BLACKLIST DITAMBAHKAN**\n\n"
+            f"{aktif_emoji} **Proteksi Gcast Aktif**\n"
             f"**ID Chat:** `{chat_id_to_add}`\n"
             f"**Total Blacklist:** `{len(CONFIG.blacklist.groups)}` grup"
         )
@@ -76,7 +80,8 @@ async def addbl_handler(client: VzoelClient, message: Message):
     else:
         # Kalo gagal simpen, balikin lagi data di memori
         CONFIG.blacklist.groups.remove(chat_id_to_add)
-        await message.reply_text(f"{EMOJIS.get_char('merah')} Gagal menyimpan perubahan ke config.json.")
+        merah_emoji = vzoel_assets.get_emoji('merah', premium_format=True)
+        await message.reply_text(f"{merah_emoji} Gagal menyimpan perubahan ke config.json.")
 
 async def rmbl_handler(client: VzoelClient, message: Message):
     """Menghapus chat dari blacklist gcast."""
@@ -89,19 +94,24 @@ async def rmbl_handler(client: VzoelClient, message: Message):
         else:
             chat_id_to_remove = message.chat.id
     except ValueError:
-        await message.reply_text(f"{EMOJIS.get_char('merah')} ID chat tidak valid, Master.")
+        merah_emoji = vzoel_assets.get_emoji('merah', premium_format=True)
+        await message.reply_text(f"{merah_emoji} ID chat tidak valid, Master.")
         return
 
     if chat_id_to_remove not in CONFIG.blacklist.groups:
-        await message.reply_text(f"{EMOJIS.get_char('kuning')} Chat ini tidak ada di dalam blacklist.")
+        kuning_emoji = vzoel_assets.get_emoji('kuning', premium_format=True)
+        await message.reply_text(f"{kuning_emoji} Chat ini tidak ada di dalam blacklist.")
         return
 
     CONFIG.blacklist.groups.remove(chat_id_to_remove)
     
     if save_config_changes():
+        adder1_emoji = vzoel_assets.get_emoji('adder1', premium_format=True)
+        telegram_emoji = vzoel_assets.get_emoji('telegram', premium_format=True)
+        
         response = (
-            f"{EMOJIS.get_char('adder1')} **BLACKLIST DIHAPUS**\n\n"
-            f"{EMOJIS.get_char('telegram')} **Proteksi Gcast Dinonaktifkan**\n"
+            f"{adder1_emoji} **BLACKLIST DIHAPUS**\n\n"
+            f"{telegram_emoji} **Proteksi Gcast Dinonaktifkan**\n"
             f"**ID Chat:** `{chat_id_to_remove}`\n"
             f"**Sisa Blacklist:** `{len(CONFIG.blacklist.groups)}` grup"
         )
@@ -109,13 +119,15 @@ async def rmbl_handler(client: VzoelClient, message: Message):
     else:
         # Kalo gagal simpen, balikin lagi data di memori
         CONFIG.blacklist.groups.append(chat_id_to_remove)
-        await message.reply_text(f"{EMOJIS.get_char('merah')} Gagal menyimpan perubahan ke config.json.")
+        merah_emoji = vzoel_assets.get_emoji('merah', premium_format=True)
+        await message.reply_text(f"{merah_emoji} Gagal menyimpan perubahan ke config.json.")
         
 async def listbl_handler(client: VzoelClient, message: Message):
-    """Menampilkan daftar chat di blacklist."""
+    """Menampilkan daftar chat di blacklist dengan premium emojis."""
     blacklist = CONFIG.blacklist.groups
     if not blacklist:
-        await message.reply_text(f"{EMOJIS.get_char('centang')} Blacklist gcast saat ini kosong.")
+        centang_emoji = vzoel_assets.get_emoji('centang', premium_format=True)
+        await message.reply_text(f"{centang_emoji} Blacklist gcast saat ini kosong.")
         return
     
     pesan = f"**Total Blacklist Gcast: `{len(blacklist)}` grup**\n\n"
@@ -127,12 +139,13 @@ async def listbl_handler(client: VzoelClient, message: Message):
     await message.reply_text(pesan)
 
 async def clearbl_handler(client: VzoelClient, message: Message):
-    """Menghapus semua chat dari blacklist."""
+    """Menghapus semua chat dari blacklist dengan premium emojis."""
     args = get_arguments(message)
     
     if args.lower() != "confirm":
+        merah_emoji = vzoel_assets.get_emoji('merah', premium_format=True)
         await message.reply_text(
-            f"{EMOJIS.get_char('merah')} **PERINGATAN!**\n"
+            f"{merah_emoji} **PERINGATAN!**\n"
             "Ini akan menghapus SEMUA blacklist.\n\n"
             "Ketik `.clearbl confirm` untuk melanjutkan."
         )
@@ -142,12 +155,14 @@ async def clearbl_handler(client: VzoelClient, message: Message):
     CONFIG.blacklist.groups.clear()
     
     if save_config_changes():
+        utama_emoji = vzoel_assets.get_emoji('utama', premium_format=True)
         response = (
-            f"{EMOJIS.get_char('utama')} **BLACKLIST DIBERSIHKAN**\n\n"
+            f"{utama_emoji} **BLACKLIST DIBERSIHKAN**\n\n"
             f"Berhasil menghapus `{len(original_blacklist)}` grup dari blacklist."
         )
         await message.reply_text(response)
     else:
         # Kalo gagal simpen, balikin lagi data di memori
         CONFIG.blacklist.groups = original_blacklist
-        await message.reply_text(f"{EMOJIS.get_char('merah')} Gagal menyimpan perubahan ke config.json.")
+        merah_emoji = vzoel_assets.get_emoji('merah', premium_format=True)
+        await message.reply_text(f"{merah_emoji} Gagal menyimpan perubahan ke config.json.")
