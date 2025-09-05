@@ -216,6 +216,8 @@ async def blacklist_router(client: VzoelClient, message: Message):
     
     if command == "bl":
         await bl_handler(client, message)
+    elif command == "rmbl":
+        await rmbl_handler(client, message)
     elif command == "lock":
         await lock_handler(client, message)
     elif command == "unlock":
@@ -355,6 +357,111 @@ async def bl_handler(client: VzoelClient, message: Message):
             f"{blacklist_system.blacklist_emoji['warning']} {bold('Trigger Already Exists!')}\\n\\n"
             f"{emoji('kuning')} **Word:** {monospace(trigger_word)}\\n"
             f"{emoji('proses')} This trigger is already in the blacklist.",
+            parse_mode=ParseMode.MARKDOWN
+        )
+
+async def rmbl_handler(client: VzoelClient, message: Message):
+    """
+    Remove blacklist trigger handler
+    Usage: .rmbl (trigger_word) atau .rmbl dengan reply message
+    Requires: Admin dengan delete message permission
+    """
+    
+    # Check if in group
+    if message.chat.type not in ["group", "supergroup"]:
+        await message.reply_text(
+            f"{blacklist_system.blacklist_emoji['error']} {bold('Group Only!')}\\n\\n"
+            f"{emoji('kuning')} Blacklist commands only work in groups.",
+            parse_mode=ParseMode.MARKDOWN
+        )
+        return
+    
+    # Check admin permissions
+    if not await blacklist_system.check_admin_permissions(
+        client, message.chat.id, message.from_user.id):
+        await message.reply_text(
+            f"{blacklist_system.blacklist_emoji['error']} {bold('Admin Required!')}\\n\\n"
+            f"{emoji('kuning')} You need admin privileges with delete message permission.",
+            parse_mode=ParseMode.MARKDOWN
+        )
+        return
+    
+    # Get arguments
+    args = get_arguments(message)
+    reply_message = message.reply_to_message
+    trigger_word = ""
+    
+    if args:
+        trigger_word = args.strip()
+    elif reply_message and reply_message.text:
+        trigger_word = reply_message.text.strip()
+    else:
+        # Show current triggers for removal
+        chat_info = blacklist_system.get_chat_blacklist_info(message.chat.id)
+        
+        if chat_info['total_triggers'] == 0:
+            await message.reply_text(
+                f"{blacklist_system.blacklist_emoji['error']} {bold('No Triggers Found!')}\\n\\n"
+                f"{emoji('kuning')} No blacklist triggers to remove.",
+                parse_mode=ParseMode.MARKDOWN
+            )
+            return
+        
+        trigger_list = "\\n".join([f"• {monospace(trigger)}" for trigger in chat_info['word_triggers'][:10]])
+        
+        usage_text = [
+            f"{vzoel_signature()}",
+            "",
+            f"{blacklist_system.blacklist_emoji['list']} {bold('REMOVE BLACKLIST TRIGGER')}",
+            "",
+            f"{blacklist_system.blacklist_emoji['error']} **No trigger word specified!**",
+            "",
+            f"{emoji('utama')} **Usage:**",
+            f"  • {monospace('.rmbl trigger_word')} - Remove word trigger",
+            f"  • {monospace('.rmbl')} + reply to message - Remove message trigger",
+            "",
+            f"{emoji('centang')} **Current Triggers ({chat_info['total_triggers']}):**",
+            trigger_list,
+            "",
+            f"{emoji('telegram')} **View all:** {monospace('.bllist')}",
+            "",
+            f"{italic('Premium Blacklist by Vzoel Fox\\'s')}"
+        ]
+        
+        await message.reply_text(
+            "\\n".join(usage_text),
+            parse_mode=ParseMode.MARKDOWN
+        )
+        return
+    
+    # Remove trigger word
+    success = blacklist_system.remove_word_trigger(message.chat.id, trigger_word)
+    
+    if success:
+        success_text = [
+            f"{blacklist_system.blacklist_emoji['remove']} {bold('Blacklist Removed!')}",
+            "",
+            f"{blacklist_system.blacklist_emoji['trigger']} **Removed:** {monospace(trigger_word)}",
+            f"{emoji('centang')} **Action:** This trigger is no longer active",
+            f"{emoji('aktif')} **Status:** Messages with this word won't be deleted",
+            "",
+            f"{emoji('telegram')} **View remaining:** {monospace('.bllist')}",
+            "",
+            f"{italic('Premium Blacklist by Vzoel Fox\\'s')}"
+        ]
+        
+        await message.reply_text(
+            "\\n".join(success_text),
+            parse_mode=ParseMode.MARKDOWN
+        )
+        
+        LOGGER.info(f"Removed blacklist trigger '{trigger_word}' from chat {message.chat.id}")
+        
+    else:
+        await message.reply_text(
+            f"{blacklist_system.blacklist_emoji['warning']} {bold('Trigger Not Found!')}\\n\\n"
+            f"{emoji('kuning')} **Word:** {monospace(trigger_word)}\\n"
+            f"{emoji('proses')} This trigger is not in the blacklist.",
             parse_mode=ParseMode.MARKDOWN
         )
 
