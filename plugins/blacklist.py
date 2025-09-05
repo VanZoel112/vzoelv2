@@ -320,11 +320,11 @@ async def bl_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **View list:** {monospace('.bllist')}",
             "",
-            f"{italic('Premium Blacklist by Vzoel Fox\\'s')}"
+            f"{italic('Premium Blacklist by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(usage_text),
+            "\n".join(usage_text),
             parse_mode=ParseMode.MARKDOWN
         )
         return
@@ -429,7 +429,7 @@ async def rmbl_handler(client: VzoelClient, message: Message):
         ]
         
         await message.reply_text(
-            "\\n".join(usage_text),
+            "\n".join(usage_text),
             parse_mode=ParseMode.MARKDOWN
         )
         return
@@ -510,7 +510,7 @@ async def lock_handler(client: VzoelClient, message: Message):
         ]
         
         await message.reply_text(
-            "\\n".join(usage_text),
+            "\n".join(usage_text),
             parse_mode=ParseMode.MARKDOWN
         )
         return
