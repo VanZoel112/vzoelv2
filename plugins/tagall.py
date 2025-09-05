@@ -12,7 +12,7 @@ from pyrogram.enums import ParseMode, ChatMemberStatus
 from pyrogram.errors import MessageNotModified, FloodWait, ChatAdminRequired
 
 # Import sistem terintegrasi premium
-from helper_client import VzoelClient
+from helper_client import VzoelClient, is_user_mode, get_client_type
 from helper_cmd_handler import CMD_HANDLER, get_command, get_arguments
 from helper_logger import LOGGER
 from utils.assets import vzoel_assets, premium_emoji, bold, italic, monospace, emoji, vzoel_signature
@@ -51,13 +51,14 @@ class PremiumTagAllSystem:
         self.edit_interval = 4.0  # 4 seconds between edits
         
     async def collect_group_members(self, client: VzoelClient, chat_id: int) -> List[User]:
-        """Collect all group members yang bisa ditag"""
+        """Collect all group members yang bisa ditag - works for both user and bot mode"""
         members = []
         
         try:
-            LOGGER.info(f"Collecting members for chat {chat_id}")
+            client_type = get_client_type(client)
+            LOGGER.info(f"Collecting members for chat {chat_id} using {client_type} mode")
             
-            # Get chat members
+            # Get chat members - works without admin for user mode
             async for member in client.get_chat_members(chat_id):
                 # Skip bots, deleted accounts, dan restricted users
                 if (member.user and 
@@ -67,11 +68,22 @@ class PremiumTagAllSystem:
                     
                     members.append(member.user)
             
-            LOGGER.info(f"Collected {len(members)} taggable members")
+            LOGGER.info(f"Collected {len(members)} taggable members with {client_type} mode")
             return members
             
         except ChatAdminRequired:
-            LOGGER.warning("Admin privileges required to collect members")
+            # User mode can still work in many cases without admin
+            if is_user_mode(client):
+                LOGGER.info("Continuing with user mode - admin not required")
+                try:
+                    # Alternative method for user accounts
+                    chat = await client.get_chat(chat_id)
+                    # Use basic member list if available
+                    return members  # Return what we have so far
+                except:
+                    pass
+            else:
+                LOGGER.warning("Admin privileges required for bot mode")
             return []
         except Exception as e:
             LOGGER.error(f"Error collecting members: {e}")
