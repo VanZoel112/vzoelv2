@@ -241,6 +241,10 @@ def vzoel_msg(text: str, style: str = "bold", pattern: str = None, premium_forma
     """Quick message formatting dengan premium emoji support"""
     return vzoel_assets.format_message(text, style, pattern, premium_format)
 
+def monospace(text: str) -> str:
+    """Quick monospace formatting"""
+    return vzoel_assets.monospace(text)
+
 def vzoel_signature(premium_format: bool = False) -> str:
     """Quick Vzoel signature dengan premium support"""
     return vzoel_assets.vzoel_signature(premium_format)

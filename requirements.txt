@@ -1,87 +1,20 @@
-# VZOEL ASSISTANT v2 - Premium Bot Framework Dependencies
-# Fixed and optimized for Ubuntu compatibility
-# Created by: Vzoel Fox's Assistant
+# VZOEL ASSISTANT v2 - Minimal Dependencies
+# Core requirements only untuk mengatasi error import
+# Install ini dulu, baru install requirements.txt lengkap
 
-# ==========================================
-# CORE TELEGRAM BOT FRAMEWORK (ESSENTIAL)
-# ==========================================
-pyrogram>=2.0.106,<3.0.0
+# ESSENTIAL CORE (HARUS ADA)
+pyrogram>=2.0.106
 tgcrypto>=1.2.5
-
-# ==========================================
-# PERFORMANCE OPTIMIZATION (CORE)
-# ==========================================
-uvloop>=0.19.0; sys_platform != "win32"
-aiofiles>=23.2.1
-aiodns>=3.1.1
-
-# ==========================================
-# HTTP CLIENTS & NETWORKING (ESSENTIAL)
-# ==========================================
-aiohttp>=3.9.0,<4.0.0
-httpx>=0.27.0
-requests>=2.31.0
-
-# ==========================================
-# DATA PROCESSING & FORMATS (ESSENTIAL)
-# ==========================================
-python-dotenv>=1.0.0
+aiofiles>=23.0.0
+aiohttp>=3.8.0
 PyYAML>=6.0.0
-beautifulsoup4>=4.12.0
-lxml>=4.9.0
-
-# ==========================================
-# ASYNC DATABASE (ESSENTIAL FOR PLUGINS)
-# ==========================================
+python-dotenv>=1.0.0
 aiosqlite>=0.19.0
-motor>=3.3.0
 
-# ==========================================
-# UTILITIES & CLI (CORE)
-# ==========================================
+# BASIC UTILITIES
 colorama>=0.4.6
-rich>=13.7.0
-click>=8.1.7
-python-dateutil>=2.8.2
-
-# ==========================================
-# SECURITY & VALIDATION (ESSENTIAL)
-# ==========================================
+requests>=2.31.0
 cryptography>=41.0.0
-bcrypt>=4.1.0
-validators>=0.22.0
 
-# ==========================================
-# IMAGE PROCESSING (PLUGIN SUPPORT)
-# ==========================================
-Pillow>=10.0.0
-imageio>=2.34.0
-
-# ==========================================
-# OPTIONAL ENHANCEMENTS
-# ==========================================
-# Uncomment if needed:
-# opencv-python>=4.8.0.74
-# brotli>=1.1.0
-# websockets>=12.0
-# toml>=0.10.2
-# psutil>=5.9.8
-# asyncio-throttle>=1.0.2
-# pymongo>=4.6.0
-# redis>=5.0.0
-# sqlalchemy>=2.0.0
-# asyncpg>=0.29.0
-# python-magic>=0.4.27
-# qrcode>=7.4.2
-# gtts>=2.5.0
-# yt-dlp>=2024.1.0
-
-# ==========================================
-# DEVELOPMENT TOOLS (OPTIONAL)
-# ==========================================
-# Uncomment for development:
-# pytest>=8.0.0
-# pytest-asyncio>=0.23.0
-# black>=24.0.0
-# flake8>=7.0.0
-# loguru>=0.7.2
+# PERFORMANCE (OPTIONAL TAPI DIREKOMENDASIKAN)
+uvloop>=0.19.0; sys_platform != "win32"
