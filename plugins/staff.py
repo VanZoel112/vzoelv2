@@ -111,7 +111,7 @@ class PremiumStaffSystem:
             f"   {emoji('loading')} {italic(admin_title)}"
         ]
         
-        return "\\n".join(entry_lines)
+        return "\n".join(entry_lines)
     
     async def get_chat_admins(self, client: VzoelClient, chat_id: int) -> List[ChatMember]:
         """Get all chat administrators"""
@@ -244,11 +244,11 @@ async def admin_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('loading')} **Requirements:** Admin with promote rights",
             "",
-            f"{italic('Premium Admin System by Vzoel Fox\\'s')}"
+            f"{italic('Premium Admin System by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(usage_text),
+            "\n".join(usage_text),
             parse_mode=ParseMode.MARKDOWN
         )
         return
@@ -277,11 +277,11 @@ async def admin_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **View all staff:** {monospace('.staff')}",
             "",
-            f"{italic(f'Promoted by {message.from_user.first_name} via Vzoel Fox\\'s')}"
+            f"{italic(f'Promoted by {message.from_user.first_name} via Vzoel Fox\u0027s')}"
         ]
         
         await promoting_msg.edit_text(
-            "\\n".join(success_text),
+            "\n".join(success_text),
             parse_mode=ParseMode.MARKDOWN
         )
         
@@ -301,11 +301,11 @@ async def admin_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **Current staff:** {monospace('.staff')}",
             "",
-            f"{italic('Premium Admin System by Vzoel Fox\\'s')}"
+            f"{italic('Premium Admin System by Vzoel Fox\u0027s')}"
         ]
         
         await promoting_msg.edit_text(
-            "\\n".join(error_text),
+            "\n".join(error_text),
             parse_mode=ParseMode.MARKDOWN
         )
 
@@ -366,12 +366,12 @@ async def staff_handler(client: VzoelClient, message: Message):
     staff_lines.extend([
         f"{emoji('utama')} **Promote new admin:** {monospace('.admin @username')}",
         "",
-        f"{italic('Premium Staff System by Vzoel Fox\\'s')}"
+        f"{italic('Premium Staff System by Vzoel Fox\u0027s')}"
     ])
     
     # Update message dengan staff list
     await loading_msg.edit_text(
-        "\\n".join(staff_lines),
+        "\n".join(staff_lines),
         parse_mode=ParseMode.MARKDOWN
     )
     

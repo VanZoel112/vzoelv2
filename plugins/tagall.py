@@ -133,7 +133,7 @@ class PremiumTagAllSystem:
             f"{emoji('aktif')} **Style:** {font_style['name'].title()}",
             f"{emoji('loading')} **Auto-updating every {self.edit_interval}s**",
             "",
-            f"{italic('Premium TagAll by Vzoel Fox\\'s')}"
+            f"{italic('Premium TagAll by Vzoel Fox\u0027s')}"
         ])
         
         return "\n".join(tagall_lines)
@@ -341,11 +341,11 @@ async def tagall_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('loading')} **Stop:** {monospace('.stop')}",
             "",
-            f"{italic('Enhanced TagAll by Vzoel Fox\\'s')}"
+            f"{italic('Enhanced TagAll by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(usage_text),
+            "\n".join(usage_text),
             parse_mode=ParseMode.MARKDOWN
         )
         return

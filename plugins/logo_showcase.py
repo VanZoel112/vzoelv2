@@ -222,9 +222,9 @@ async def image_info_command(client: Client, message: Message):
                 info_lines.extend([
                     f"{emoji('utama')} **{name.upper()}**",
                     f"  • Path: `{path}`",
-                    f"  • Dimensions: {bold(f'{img_info[\"width\"]}x{img_info[\"height\"]}')}",
+                    f"  • Dimensions: {bold(f\"{img_info['width']}x{img_info['height']}\")}",
                     f"  • Format: {bold(img_info['format'])}",
-                    f"  • Size: {bold(f'{img_info[\"size_mb\"]:.2f}MB')}",
+                    f"  • Size: {bold(f\"{img_info['size_mb']:.2f}MB\")}",
                     f"  • Aspect Ratio: {bold(str(img_info['aspect_ratio']))}",
                     f"  • Telegram Ready: {bold('✓' if not img_info['needs_resize'] else 'Needs Resize')}",
                     ""

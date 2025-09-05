@@ -342,11 +342,11 @@ async def bl_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **View all triggers:** {monospace('.bllist')}",
             "",
-            f"{italic('Premium Blacklist by Vzoel Fox\\'s')}"
+            f"{italic('Premium Blacklist by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(success_text),
+            "\n".join(success_text),
             parse_mode=ParseMode.MARKDOWN
         )
         
@@ -425,7 +425,7 @@ async def rmbl_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **View all:** {monospace('.bllist')}",
             "",
-            f"{italic('Premium Blacklist by Vzoel Fox\\'s')}"
+            f"{italic('Premium Blacklist by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
@@ -447,11 +447,11 @@ async def rmbl_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **View remaining:** {monospace('.bllist')}",
             "",
-            f"{italic('Premium Blacklist by Vzoel Fox\\'s')}"
+            f"{italic('Premium Blacklist by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(success_text),
+            "\n".join(success_text),
             parse_mode=ParseMode.MARKDOWN
         )
         
@@ -506,7 +506,7 @@ async def lock_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('merah')} **Unlock:** {monospace('.unlock @username')}",
             "",
-            f"{italic('Premium Lock System by Vzoel Fox\\'s')}"
+            f"{italic('Premium Lock System by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
@@ -540,11 +540,11 @@ async def lock_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('merah')} **Unlock:** {monospace(f'.unlock @{target_user.username}' if target_user.username else f'.unlock {target_user.id}')}",
             "",
-            f"{italic('Premium Lock System by Vzoel Fox\\'s')}"
+            f"{italic('Premium Lock System by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(success_text),
+            "\n".join(success_text),
             parse_mode=ParseMode.MARKDOWN
         )
         
@@ -596,7 +596,7 @@ async def bllist_handler(client: VzoelClient, message: Message):
         f"{blacklist_system.blacklist_emoji['trigger']} **Word Triggers:** {chat_info['total_triggers']}",
         f"{blacklist_system.blacklist_emoji['locked']} **Locked Users:** {chat_info['total_locked']}",
         "",
-        f"{italic('Premium Blacklist by Vzoel Fox\\'s')}"
+        f"{italic('Premium Blacklist by Vzoel Fox\u0027s')}"
     ]
     
     await message.reply_text(

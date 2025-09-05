@@ -114,7 +114,7 @@ class PremiumCheckIDSystem:
             f"{user_emoji} **Username:** {username_formatted}",
             f"{name_emoji} **Name:** {name_formatted}",
             "",
-            f"{italic('Premium CheckID by Vzoel Fox\\'s')}"
+            f"{italic('Premium CheckID by Vzoel Fox\u0027s')}"
         ]
         
         return "\n".join(info_lines)
@@ -273,7 +273,7 @@ async def checkid_handler(client: VzoelClient, message: Message):
                     f"  • {monospace('.id @validusername')}",
                     f"  • Reply to user's message + {monospace('.id')}",
                     "",
-                    f"{italic('Premium CheckID by Vzoel Fox\\'s')}"
+                    f"{italic('Premium CheckID by Vzoel Fox\u0027s')}"
                 ]
                 
                 await progress_msg.edit_text(
@@ -336,7 +336,7 @@ async def checkid_handler(client: VzoelClient, message: Message):
                 "",
                 f"{emoji('telegram')} **Alternative:** Use {monospace('.id @username')}",
                 "",
-                f"{italic('Premium CheckID by Vzoel Fox\\'s')}"
+                f"{italic('Premium CheckID by Vzoel Fox\u0027s')}"
             ]
             
             await progress_msg.edit_text(
@@ -361,7 +361,7 @@ async def checkid_handler(client: VzoelClient, message: Message):
             f"  • {monospace('.id @telegram')}",
             f"  • Reply to message + {monospace('.id')}",
             "",
-            f"{italic('Premium CheckID by Vzoel Fox\\'s')}"
+            f"{italic('Premium CheckID by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
@@ -403,7 +403,7 @@ async def stop_checkid_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **Restart:** Use {monospace('.id @username')} again",
             "",
-            f"{italic('Premium CheckID by Vzoel Fox\\'s')}"
+            f"{italic('Premium CheckID by Vzoel Fox\u0027s')}"
         ]
     else:
         stop_message = [
@@ -412,7 +412,7 @@ async def stop_checkid_handler(client: VzoelClient, message: Message):
             f"{emoji('proses')} **Status:** No CheckID loops running",
             f"{emoji('telegram')} **Start:** Use {monospace('.id @username')}",
             "",
-            f"{italic('Premium CheckID by Vzoel Fox\\'s')}"
+            f"{italic('Premium CheckID by Vzoel Fox\u0027s')}"
         ]
     
     await message.reply_text(

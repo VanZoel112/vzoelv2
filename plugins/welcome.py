@@ -296,11 +296,11 @@ async def setwelcome_handler(client: VzoelClient, message: Message):
             f"{emoji('telegram')} **Example:**",
             f"  {monospace('.setwelcome Welcome {user_mention} to our group!')}",
             "",
-            f"{italic('Premium Welcome by Vzoel Fox\\'s')}"
+            f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(usage_text),
+            "\n".join(usage_text),
             parse_mode=ParseMode.MARKDOWN
         )
         return
@@ -323,11 +323,11 @@ async def setwelcome_handler(client: VzoelClient, message: Message):
             f"{emoji('centang')} **Status:** Active for new members",
             f"{emoji('telegram')} **Remove:** {monospace('.rmwelcome')}",
             "",
-            f"{italic('Premium Welcome by Vzoel Fox\\'s')}"
+            f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(success_text),
+            "\n".join(success_text),
             parse_mode=ParseMode.MARKDOWN
         )
         
@@ -383,11 +383,11 @@ async def setleave_handler(client: VzoelClient, message: Message):
             f"{emoji('telegram')} **Example:**",
             f"  {monospace('.setleave Goodbye {user_name}! Take care.')}",
             "",
-            f"{italic('Premium Welcome by Vzoel Fox\\'s')}"
+            f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(usage_text),
+            "\n".join(usage_text),
             parse_mode=ParseMode.MARKDOWN
         )
         return
@@ -410,11 +410,11 @@ async def setleave_handler(client: VzoelClient, message: Message):
             f"{emoji('centang')} **Status:** Active for leaving members",
             f"{emoji('telegram')} **Remove:** {monospace('.rmleave')}",
             "",
-            f"{italic('Premium Welcome by Vzoel Fox\\'s')}"
+            f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
         ]
         
         await message.reply_text(
-            "\\n".join(success_text),
+            "\n".join(success_text),
             parse_mode=ParseMode.MARKDOWN
         )
         
@@ -445,11 +445,11 @@ async def welcome_info_handler(client: VzoelClient, message: Message):
         f"  • {monospace('.rmwelcome')} - Reset welcome",
         f"  • {monospace('.rmleave')} - Reset leave",
         "",
-        f"{italic('Premium Welcome by Vzoel Fox\\'s')}"
+        f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
     ]
     
     await message.reply_text(
-        "\\n".join(info_lines),
+        "\n".join(info_lines),
         parse_mode=ParseMode.MARKDOWN
     )
 

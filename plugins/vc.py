@@ -161,10 +161,10 @@ class PremiumVoiceChatSystem:
         status_lines.extend([
             f"{emoji('kuning')} **Time:** {monospace(current_time)}",
             "",
-            f"{italic('Premium VC by Vzoel Fox\\'s')}"
+            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
         ])
         
-        return "\\n".join(status_lines)
+        return "\n".join(status_lines)
     
     async def start_vc_monitoring(self, client: VzoelClient, chat_id: int, 
                                 status_message: Message) -> None:
@@ -362,11 +362,11 @@ async def startvc_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('kuning')} **Join:** Use {monospace('.joinvc')} to participate",
             "",
-            f"{italic('Premium VC by Vzoel Fox\\'s')}"
+            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
         ]
         
         await starting_msg.edit_text(
-            "\\n".join(success_message),
+            "\n".join(success_message),
             parse_mode=ParseMode.MARKDOWN
         )
         
@@ -383,11 +383,11 @@ async def startvc_handler(client: VzoelClient, message: Message):
             f"  • Insufficient permissions",
             f"  • Group limitations",
             "",
-            f"{italic('Premium VC by Vzoel Fox\\'s')}"
+            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
         ]
         
         await starting_msg.edit_text(
-            "\\n".join(error_message),
+            "\n".join(error_message),
             parse_mode=ParseMode.MARKDOWN
         )
 
@@ -421,11 +421,11 @@ async def stopvc_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('kuning')} **Restart:** Use {monospace('.startvc')} to begin new call",
             "",
-            f"{italic('Premium VC by Vzoel Fox\\'s')}"
+            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
         ]
         
         await stopping_msg.edit_text(
-            "\\n".join(success_message),
+            "\n".join(success_message),
             parse_mode=ParseMode.MARKDOWN
         )
         
@@ -442,11 +442,11 @@ async def stopvc_handler(client: VzoelClient, message: Message):
             f"  • Insufficient permissions",
             f"  • Connection problems",
             "",
-            f"{italic('Premium VC by Vzoel Fox\\'s')}"
+            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
         ]
         
         await stopping_msg.edit_text(
-            "\\n".join(error_message),
+            "\n".join(error_message),
             parse_mode=ParseMode.MARKDOWN
         )
 

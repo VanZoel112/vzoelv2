@@ -72,7 +72,7 @@ class PremiumPingSystem:
             f"{emoji('centang')} **Status:** {bold('Online & Ready')}",
             f"{emoji('utama')} **Server:** {bold('Premium Performance')}",
             "",
-            f"{italic('Ultra-fast response by Vzoel Fox\\'s')}"
+            f"{italic('Ultra-fast response by Vzoel Fox\u0027s')}"
         ]
         
         return "\n".join(ping_lines)
@@ -95,7 +95,7 @@ class PremiumPingSystem:
             message_text = "VZOEL ASSISTANT anti delay"
         
         pink_lines = [
-            f"{color['emoji']} {bold(f'COLOR: {color[\"name\"].upper()}')}",
+            f"{color['emoji']} {bold(f\"COLOR: {color['name'].upper()}\")}",
             "",
             f"{emoji('adder2')} {message_text}",
             "",
