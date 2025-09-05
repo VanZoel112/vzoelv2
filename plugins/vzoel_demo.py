@@ -190,7 +190,7 @@ async def alive_premium(client, message):
     alive_text += f"{emoji('aktif')} System: Premium Mode\n"
     alive_text += f"{emoji('centang')} Assets: Loaded Successfully\n"
     alive_text += f"{emoji('petir')} Performance: Optimized\n\n"
-    alive_text += f"{italic('Enhanced by Vzoel Fox\\'s Premium Assets')}"
+    alive_text += f"{italic('Enhanced by Vzoel Fox\\\\\\'s Premium Assets')}"
     
     await message.reply_text(alive_text)
 

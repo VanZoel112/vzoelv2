@@ -133,3 +133,23 @@
 2025-09-05 14:38:07,271 - 🎚 DisplayHelper - INFO - 👍 Banner width: **5****0**
 2025-09-05 14:38:07,272 - 🎚 DisplayHelper - INFO - ⚙️ Menu width: **4****0**
 2025-09-05 14:38:07,273 - 🎚 DisplayHelper - INFO - 🤩 Premium styling: **A****C****T****I****V****E**
+2025-09-05 16:21:34,702 - 🎚 pyrogram.session.auth - INFO - Start creating a new auth key on DC2
+2025-09-05 16:21:34,708 - 🎚 pyrogram.connection.connection - INFO - Connecting...
+2025-09-05 16:21:34,763 - 🎚 pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2025-09-05 16:21:38,515 - 🎚 pyrogram.session.auth - INFO - Done auth key exchange: DhGenOk
+2025-09-05 16:21:38,518 - 🎚 pyrogram.connection.connection - INFO - Disconnected
+2025-09-05 16:21:38,590 - 🎚 pyrogram.connection.connection - INFO - Connecting...
+2025-09-05 16:21:38,625 - 🎚 pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
+2025-09-05 16:21:38,630 - 🎚 pyrogram.session.session - INFO - NetworkTask started
+2025-09-05 16:21:39,593 - 🎚 pyrogram.session.session - INFO - Session initialized: Layer 158
+2025-09-05 16:21:39,594 - 🎚 pyrogram.session.session - INFO - Device: CPython 3.12.11 - Pyrogram 2.0.106
+2025-09-05 16:21:39,594 - 🎚 pyrogram.session.session - INFO - System: Linux 5.10.209-android12-9-00021-g591df1b05194-ab12385099 (en)
+2025-09-05 16:21:39,595 - 🎚 pyrogram.session.session - INFO - Session started
+2025-09-05 16:21:39,605 - 🎚 pyrogram.session.session - INFO - PingTask started
+2025-09-05 16:21:39,856 - 🎚 pyrogram.session.session - INFO - PingTask stopped
+2025-09-05 16:21:39,859 - 🎚 pyrogram.session.session - INFO - NetworkTask stopped
+2025-09-05 16:21:39,860 - 🎚 pyrogram.connection.connection - INFO - Disconnected
+2025-09-05 16:21:39,861 - 🎚 pyrogram.session.session - INFO - Session stopped
+2025-09-05 16:21:39,929 - 🎚 pyrogram.session.auth - INFO - Start creating a new auth key on DC5
+2025-09-05 16:21:39,930 - 🎚 pyrogram.connection.connection - INFO - Connecting...
+2025-09-05 16:21:40,027 - 🎚 pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
