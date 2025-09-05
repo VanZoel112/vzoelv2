@@ -133,7 +133,7 @@ class PremiumTagAllSystem:
             f"{emoji('aktif')} **Style:** {font_style['name'].title()}",
             f"{emoji('loading')} **Auto-updating every {self.edit_interval}s**",
             "",
-            f"{italic('Premium TagAll by Vzoel Fox\u0027s')}"
+            f"{italic('Premium TagAll by Vzoel VZLfxs @Lutpan')}"
         ])
         
         return "\n".join(tagall_lines)
@@ -341,7 +341,7 @@ async def tagall_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('loading')} **Stop:** {monospace('.stop')}",
             "",
-            f"{italic('Enhanced TagAll by Vzoel Fox\u0027s')}"
+            f"{italic('Enhanced TagAll by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await message.reply_text(
@@ -397,7 +397,7 @@ async def stop_tagall_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **Restart:** Use {monospace('.tagall message')}",
             "",
-            f"{italic('TagAll system halted by Vzoel Fox\u0027s')}"
+            f"{italic('TagAll system halted by Vzoel VZLfxs @Lutpan')}"
         ]
     else:
         stop_message = [
@@ -406,7 +406,7 @@ async def stop_tagall_handler(client: VzoelClient, message: Message):
             f"{emoji('proses')} **Status:** No TagAll sessions running",
             f"{emoji('telegram')} **Start:** Use {monospace('.tagall message')}",
             "",
-            f"{italic('TagAll system ready by Vzoel Fox\u0027s')}"
+            f"{italic('TagAll system ready by Vzoel VZLfxs @Lutpan')}"
         ]
     
     await message.reply_text(

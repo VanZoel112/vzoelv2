@@ -244,7 +244,7 @@ async def admin_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('loading')} **Requirements:** Admin with promote rights",
             "",
-            f"{italic('Premium Admin System by Vzoel Fox\u0027s')}"
+            f"{italic('Premium Admin System by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await message.reply_text(
@@ -277,7 +277,7 @@ async def admin_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **View all staff:** {monospace('.staff')}",
             "",
-            f"{italic(f'Promoted by {message.from_user.first_name} via Vzoel Fox\u0027s')}"
+            f"{italic(f'Promoted by {message.from_user.first_name} via Vzoel VZLfxs @Lutpan')}"
         ]
         
         await promoting_msg.edit_text(
@@ -301,7 +301,7 @@ async def admin_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **Current staff:** {monospace('.staff')}",
             "",
-            f"{italic('Premium Admin System by Vzoel Fox\u0027s')}"
+            f"{italic('Premium Admin System by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await promoting_msg.edit_text(
@@ -366,7 +366,7 @@ async def staff_handler(client: VzoelClient, message: Message):
     staff_lines.extend([
         f"{emoji('utama')} **Promote new admin:** {monospace('.admin @username')}",
         "",
-        f"{italic('Premium Staff System by Vzoel Fox\u0027s')}"
+        f"{italic('Premium Staff System by Vzoel VZLfxs @Lutpan')}"
     ])
     
     # Update message dengan staff list

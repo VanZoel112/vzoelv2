@@ -72,7 +72,7 @@ class PremiumPingSystem:
             f"{emoji('centang')} **Status:** {bold('Online & Ready')}",
             f"{emoji('utama')} **Server:** {bold('Premium Performance')}",
             "",
-            f"{italic('Ultra-fast response by Vzoel Fox\u0027s')}"
+            f"{italic('Ultra-fast response by Vzoel VZLfxs @Lutpan')}"
         ]
         
         return "\n".join(ping_lines)

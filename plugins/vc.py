@@ -161,7 +161,7 @@ class PremiumVoiceChatSystem:
         status_lines.extend([
             f"{emoji('kuning')} **Time:** {monospace(current_time)}",
             "",
-            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
+            f"{italic('Premium VC by Vzoel VZLfxs @Lutpan')}"
         ])
         
         return "\n".join(status_lines)
@@ -362,7 +362,7 @@ async def startvc_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('kuning')} **Join:** Use {monospace('.joinvc')} to participate",
             "",
-            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
+            f"{italic('Premium VC by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await starting_msg.edit_text(
@@ -383,7 +383,7 @@ async def startvc_handler(client: VzoelClient, message: Message):
             f"  • Insufficient permissions",
             f"  • Group limitations",
             "",
-            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
+            f"{italic('Premium VC by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await starting_msg.edit_text(
@@ -421,7 +421,7 @@ async def stopvc_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('kuning')} **Restart:** Use {monospace('.startvc')} to begin new call",
             "",
-            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
+            f"{italic('Premium VC by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await stopping_msg.edit_text(
@@ -442,7 +442,7 @@ async def stopvc_handler(client: VzoelClient, message: Message):
             f"  • Insufficient permissions",
             f"  • Connection problems",
             "",
-            f"{italic('Premium VC by Vzoel Fox\u0027s')}"
+            f"{italic('Premium VC by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await stopping_msg.edit_text(

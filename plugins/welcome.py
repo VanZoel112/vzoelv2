@@ -296,7 +296,7 @@ async def setwelcome_handler(client: VzoelClient, message: Message):
             f"{emoji('telegram')} **Example:**",
             f"  {monospace('.setwelcome Welcome {user_mention} to our group!')}",
             "",
-            f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
+            f"{italic('Premium Welcome by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await message.reply_text(
@@ -323,7 +323,7 @@ async def setwelcome_handler(client: VzoelClient, message: Message):
             f"{emoji('centang')} **Status:** Active for new members",
             f"{emoji('telegram')} **Remove:** {monospace('.rmwelcome')}",
             "",
-            f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
+            f"{italic('Premium Welcome by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await message.reply_text(
@@ -383,7 +383,7 @@ async def setleave_handler(client: VzoelClient, message: Message):
             f"{emoji('telegram')} **Example:**",
             f"  {monospace('.setleave Goodbye {user_name}! Take care.')}",
             "",
-            f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
+            f"{italic('Premium Welcome by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await message.reply_text(
@@ -410,7 +410,7 @@ async def setleave_handler(client: VzoelClient, message: Message):
             f"{emoji('centang')} **Status:** Active for leaving members",
             f"{emoji('telegram')} **Remove:** {monospace('.rmleave')}",
             "",
-            f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
+            f"{italic('Premium Welcome by Vzoel VZLfxs @Lutpan')}"
         ]
         
         await message.reply_text(
@@ -445,7 +445,7 @@ async def welcome_info_handler(client: VzoelClient, message: Message):
         f"  • {monospace('.rmwelcome')} - Reset welcome",
         f"  • {monospace('.rmleave')} - Reset leave",
         "",
-        f"{italic('Premium Welcome by Vzoel Fox\u0027s')}"
+        f"{italic('Premium Welcome by Vzoel VZLfxs @Lutpan')}"
     ]
     
     await message.reply_text(
