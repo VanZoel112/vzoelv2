@@ -1,7 +1,7 @@
 """
 Logo Showcase Plugin - Premium Logo Display Commands
 Enhanced with comprehensive image handling and gallery features
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 from pyrogram import Client, filters
@@ -142,7 +142,7 @@ async def image_gallery_command(client: Client, message: Message):
             f"• All images optimized untuk Telegram",
             f"• Supports premium caption generation",
             "",
-            f"{italic('Enhanced by Vzoel Fox Premium Collection')}"
+            f"{italic('Enhanced by Vzoel VZLfxs @Lutpan Premium Collection')}"
         ])
         
         gallery_caption = "\n".join(gallery_info)

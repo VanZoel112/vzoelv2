@@ -1,7 +1,7 @@
 """
 Enhanced Alive Plugin - Premium Bot Status Display with Logo
 Enhanced with premium helper integration and logo display
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 from pyrogram import Client, filters
@@ -226,7 +226,7 @@ async def bot_info_command(client: Client, message: Message):
             f"  • Error Handling: {bold('✓ Enhanced')}",
             f"  • Status Monitoring: {bold('✓ Real-time')}",
             "",
-            f"{italic('Enhanced by Vzoel Fox Premium Collection')}"
+            f"{italic('Enhanced by Vzoel VZLfxs @Lutpan Premium Collection')}"
         ]
         
         await message.reply_text("\n".join(info_sections))

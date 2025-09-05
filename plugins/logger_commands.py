@@ -1,7 +1,7 @@
 """
 Logger Commands Plugin - Premium Logging Management
 Interactive commands untuk managing logging system dengan premium UI
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 from pyrogram import Client, filters
@@ -151,7 +151,7 @@ async def show_system_status(client: Client, message: Message):
             f"{emoji('aktif')} **Live Statistics:**",
             f"• Session Uptime: {bold(uptime)}",
             f"• Total Logs: {bold(str(system_status['session_stats']['total_logs']))}",
-            f"• Error Rate: {bold(f'{(system_status['session_stats']['error_logs'] / max(system_status['session_stats']['total_logs'], 1) * 100):.1f}%')}",
+            f"• Error Rate: {bold(f\"{(system_status['session_stats']['error_logs'] / max(system_status['session_stats']['total_logs'], 1) * 100):.1f}%\")}",
             f"• Users Tracked: {bold(str(len(user_logger.user_activities)))}",
         ]
         

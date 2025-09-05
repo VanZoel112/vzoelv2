@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium Help System
 Enhanced help dengan auto-discovery plugins, premium mapping, dan markdown support
-Created by: Vzoel Fox's Assistant
+Created by: VZLfxs @Lutpan Assistant
 """
 
 import os
@@ -602,7 +602,7 @@ async def help_callback_handler(client: VzoelClient, callback_query: CallbackQue
 • **Markdown Support:** Rich text formatting
 • **Real-time Updates:** Dynamic plugin refresh
 
-**💡 Created by Vzoel Fox's Assistant**"""
+**💡 Created by VZLfxs @Lutpan Assistant**"""
             
             # Create back button
             back_emoji = vzoel_assets.get_emoji('merah', premium_format=True)

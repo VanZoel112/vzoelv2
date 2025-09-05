@@ -1,7 +1,7 @@
 """
 Enhanced Help Plugin - Premium Help System with Logo Display
 Enhanced with premium helper integration and interactive navigation
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 from pyrogram import Client, filters
@@ -417,7 +417,7 @@ async def help_close_callback(client: Client, callback_query: CallbackQuery):
             f"Thank you for using Vzoel Assistant!",
             f"Type `/help` anytime to reopen this menu.",
             "",
-            f"{italic('Enhanced by Vzoel Fox Premium Collection')}"
+            f"{italic('Enhanced by Vzoel VZLfxs @Lutpan Premium Collection')}"
         ]
         
         await callback_query.edit_message_text("\n".join(close_message))

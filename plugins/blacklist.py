@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium Blacklist Chat System
 Advanced chat moderation with word triggers and user locks
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 import asyncio

@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium TagAll System
 Advanced group tagging with animated premium emoji rotation and batched mentions
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 import asyncio

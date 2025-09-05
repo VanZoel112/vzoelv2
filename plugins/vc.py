@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium Voice Chat System
 Advanced voice chat controls with duration monitoring and premium emoji mapping
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 import asyncio

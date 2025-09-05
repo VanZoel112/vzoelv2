@@ -1,7 +1,7 @@
 """
 Autonomous Bot Commands - Interactive Bot Creation dan Premium Emoji Management
 Commands untuk mengelola autonomous bot creation dan premium emoji mapping
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 from pyrogram import Client, filters

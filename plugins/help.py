@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium Help System with Inline Buttons
 Enhanced help dengan inline keyboard, premium emoji mapping, dan markdown support
-Created by: Vzoel Fox's Assistant
+Created by: VZLfxs @Lutpan Assistant
 """
 
 import os
@@ -200,7 +200,7 @@ class VzoelHelpSystem:
             "",
             f"{emoji('loading')} **VZOEL HELP SYSTEM**",
             "",
-            f"Selamat datang di sistem bantuan {bold('Vzoel Fox\\\'s Assistant')}!",
+            f"Selamat datang di sistem bantuan {bold('Vzoel VZLfxs @Lutpan Assistant')}!",
             f"Pilih kategori di bawah untuk melihat perintah yang tersedia:",
             ""
         ]
@@ -306,7 +306,7 @@ class VzoelHelpSystem:
             "",
             f"{emoji('centang')} **Framework:** Pyrogram + uvloop",
             f"{emoji('loading')} **Version:** Premium v2.0.0", 
-            f"{emoji('aktif')} **Created by:** Vzoel Fox's",
+            f"{emoji('aktif')} **Created by:** VZLfxs @Lutpan",
             "",
             f"{emoji('petir')} **Premium Features:**",
             f"• Enhanced Markdown Support",
@@ -320,7 +320,7 @@ class VzoelHelpSystem:
             f"• Emoji Categories: {bold(str(asset_info['emojis']['total_categories']))}",
             f"• Asset Version: {bold(asset_info['version'])}",
             "",
-            f"{emoji('adder2')} {italic('Enhanced by Vzoel Fox\\\'s Premium Collection')}"
+            f"{emoji('adder2')} {italic('Enhanced by Vzoel VZLfxs @Lutpan Premium Collection')}"
         ]
         
         return "\n".join(lines)

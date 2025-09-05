@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Plugin Updater System
 Auto-update system untuk plugins dengan GitHub integration
-Created by: Vzoel Fox's Assistant
+Created by: VZLfxs @Lutpan Assistant
 """
 
 import os

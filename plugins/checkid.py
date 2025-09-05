@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium CheckID System
 Advanced ID checker with animated processing, premium emoji mapping, and unlimited loop animations
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 import asyncio

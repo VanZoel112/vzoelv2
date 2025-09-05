@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium Staff Management System
 Advanced admin promotion and staff listing with premium emoji mapping
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 import asyncio

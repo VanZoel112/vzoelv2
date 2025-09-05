@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium Gcast System
 Enhanced broadcast system with premium emoji mapping, animated progress, and unlimited features
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 import asyncio
@@ -244,7 +244,7 @@ class PremiumGcastSystem:
             f"{emoji('utama')} **Quality:** Premium broadcast with zero bugs",
             f"{emoji('petir')} **Features:** Unlimited emoji + Premium styling",
             "",
-            f"{italic('Enhanced by Vzoel Fox\\\'s Premium Collection')}"
+            f"{italic('Enhanced by Vzoel VZLfxs @Lutpan Premium Collection')}"
         ]
         
         return "\n".join(report_lines)
@@ -489,7 +489,7 @@ async def gcast_info_handler(client: VzoelClient, message: Message):
         f"{emoji('kuning')} **Animation Frames:** `{len(gcast_system.animation_frames)}`",
         f"{emoji('biru')} **Progress Tracking:** Real-time updates",
         "",
-        f"{italic('Premium broadcast system by Vzoel Fox')}"
+        f"{italic('Premium broadcast system by Vzoel VZLfxs @Lutpan')}"
     ]
     
     await message.reply_text("\n".join(info_text), parse_mode=ParseMode.MARKDOWN)

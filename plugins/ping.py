@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium Ping System
 Advanced ping system with latency, color mapping, and spam reset features
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 import asyncio
@@ -170,7 +170,7 @@ class PremiumPingSystem:
             "",
             f"{emoji('centang')} **Status:** {bold('All systems operational')}",
             "",
-            f"{italic('Advanced ping system by Vzoel Fox\\'s')}"
+            f"{italic('Advanced ping system by Vzoel VZLfxs @Lutpan')}"
         ]
         
         return "\n".join(pong_lines)

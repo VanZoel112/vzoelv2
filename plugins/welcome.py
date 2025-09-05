@@ -2,7 +2,7 @@
 """
 VZOEL ASSISTANT v2 - Premium Welcome/Leave System
 Advanced welcome and leave message management with premium emoji mapping
-Created by: Vzoel Fox's
+Created by: VZLfxs @Lutpan
 """
 
 import json
