@@ -1,0 +1,65 @@
+{
+  "emojis": {
+    "vzoel_fire": {
+      "id": "5789953583373907162",
+      "alt": "🔥",
+      "premium": true
+    },
+    "vzoel_star": {
+      "id": "5309970928025167875",
+      "alt": "⭐",
+      "premium": true
+    },
+    "vzoel_check": {
+      "id": "5310129635848103696",
+      "alt": "✅",
+      "premium": true
+    },
+    "vzoel_heart": {
+      "id": "5789738050059005422",
+      "alt": "❤️",
+      "premium": true
+    },
+    "vzoel_crown": {
+      "id": "5789628129962543864",
+      "alt": "👑",
+      "premium": true
+    },
+    "vzoel_diamond": {
+      "id": "5789420829468971067",
+      "alt": "💎",
+      "premium": true
+    },
+    "vzoel_rocket": {
+      "id": "5789332346398226405",
+      "alt": "🚀",
+      "premium": true
+    },
+    "vzoel_lightning": {
+      "id": "5789265431654298655",
+      "alt": "⚡",
+      "premium": true
+    },
+    "vzoel_magic": {
+      "id": "5789183579064340771",
+      "alt": "✨",
+      "premium": true
+    },
+    "vzoel_celebration": {
+      "id": "5789098746342916355",
+      "alt": "🎉",
+      "premium": true
+    },
+    "test_emoji": {
+      "id": "123456789",
+      "alt": "🧪",
+      "premium": true
+    },
+    "persistence_test": {
+      "id": "987654321",
+      "alt": "💾",
+      "premium": true
+    }
+  },
+  "last_updated": "2025-09-05T07:49:41.770433"
+}

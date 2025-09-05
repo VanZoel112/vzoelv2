@@ -1,0 +1,20 @@
+{
+  "bots": [
+    {
+      "name": "TestBot",
+      "username": "testbot_123_bot",
+      "token": "123456:test-token",
+      "created_at": "2025-09-05T07:48:13.493688",
+      "status": "active"
+    },
+    {
+      "name": "TestBot",
+      "username": "testbot_123_bot",
+      "token": "123456:test-token",
+      "created_at": "2025-09-05T07:49:41.768699",
+      "status": "active"
+    }
+  ],
+  "total_created": 2,
+  "last_created": null
+}

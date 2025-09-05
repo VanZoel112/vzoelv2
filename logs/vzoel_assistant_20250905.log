@@ -10,3 +10,11 @@
 2025-09-05 03:18:39,147 | INFO     | VzoelAssistant | SUCCESS: Test success message
 2025-09-05 03:18:39,152 | INFO     | VzoelAssistant | Health check at 2025-09-05T03:18:39.136641
 2025-09-05 03:18:39,181 | ERROR    | VzoelAssistant | EMERGENCY: Test emergency message
+2025-09-05 07:48:13,487 | ERROR    | VzoelAssistant | Failed to load emoji mapping: 'PremiumEmojiMapper' object has no attribute 'default_premium_emojis'
+2025-09-05 07:48:13,491 | ERROR    | VzoelAssistant | Failed to load emoji mapping: 'PremiumEmojiMapper' object has no attribute 'default_premium_emojis'
+2025-09-05 07:48:13,495 | ERROR    | VzoelAssistant | Failed to load emoji mapping: 'PremiumEmojiMapper' object has no attribute 'default_premium_emojis'
+2025-09-05 07:48:13,498 | ERROR    | VzoelAssistant | Failed to load emoji mapping: 'PremiumEmojiMapper' object has no attribute 'default_premium_emojis'
+2025-09-05 07:48:13,501 | ERROR    | VzoelAssistant | Failed to load emoji mapping: 'PremiumEmojiMapper' object has no attribute 'default_premium_emojis'
+2025-09-05 07:48:13,502 | ERROR    | VzoelAssistant | Failed to load emoji mapping: 'PremiumEmojiMapper' object has no attribute 'default_premium_emojis'
+2025-09-05 07:49:41,765 | INFO     | VzoelAssistant | SUCCESS: Added custom emoji: test_emoji
+2025-09-05 07:49:41,771 | INFO     | VzoelAssistant | SUCCESS: Added custom emoji: persistence_test
