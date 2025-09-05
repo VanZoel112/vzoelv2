@@ -18,7 +18,9 @@
   "bot_credentials": {
     "bot_token": "8492488243:AAHnc_ZqtRyCgYJlUkOQZHsMNrB_R6xA7Ok",
     "phone_number": "+6283199218067",
-    "session_name": "vzoel_assistant_session"
+    "session_name": "vzoel_assistant_session",
+    "session_string": "",
+    "user_session_string": ""
   },
   "owner_info": {
     "founder_id": 7847025168,

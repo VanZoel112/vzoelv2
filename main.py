@@ -13,6 +13,7 @@ import logging
 import os
 import json
 from typing import Dict, Any, Optional
+from dotenv import load_dotenv
 
 # Install uvloop for maximum performance (with fallback)
 try:
@@ -43,6 +44,8 @@ class VzoelConfig:
     """Enhanced configuration manager with premium features"""
     
     def __init__(self):
+        # Load environment variables first
+        load_dotenv()
         self._config = self._load_config()
         self._validate_config()
     
@@ -98,7 +101,37 @@ class VzoelConfig:
     
     @property
     def session_name(self) -> str:
-        return self._config["bot_credentials"]["session_name"]
+        return self._config["bot_credentials"].get("session_name", "vzoel_session")
+    
+    @property
+    def session_string(self) -> Optional[str]:
+        """Get session string from config or env"""
+        # Try environment first
+        env_session = os.getenv("SESSION_STRING")
+        if env_session:
+            return env_session
+        # Fall back to config
+        return self._config["bot_credentials"].get("session_string")
+    
+    @property
+    def user_session_string(self) -> Optional[str]:
+        """Get user session string from config or env"""
+        # Try environment first
+        env_session = os.getenv("USER_SESSION_STRING") 
+        if env_session:
+            return env_session
+        # Fall back to config
+        return self._config["bot_credentials"].get("user_session_string")
+    
+    @property
+    def phone_number(self) -> Optional[str]:
+        """Get phone number from config or env"""
+        # Try environment first
+        env_phone = os.getenv("PHONE_NUMBER")
+        if env_phone:
+            return env_phone
+        # Fall back to config
+        return self._config["bot_credentials"].get("phone_number")
     
     @property
     def founder_id(self) -> int:
@@ -122,14 +155,26 @@ class VzoelAssistant(Client):
     """Enhanced Pyrogram client with premium features"""
     
     def __init__(self):
-        super().__init__(
-            name=config.session_name,
-            api_id=config.api_id,
-            api_hash=config.api_hash,
-            bot_token=config.bot_token,
-            plugins={"root": "plugins"},
-            parse_mode=ParseMode.MARKDOWN
-        )
+        # Determine client initialization parameters
+        client_params = {
+            "name": config.session_name,
+            "api_id": config.api_id,
+            "api_hash": config.api_hash,
+            "plugins": {"root": "plugins"},
+            "parse_mode": ParseMode.MARKDOWN
+        }
+        
+        # Use session string if available, otherwise use bot token
+        if config.session_string:
+            client_params["session_string"] = config.session_string
+            print(f"{emoji('centang')} Using session string authentication")
+        elif config.bot_token:
+            client_params["bot_token"] = config.bot_token
+            print(f"{emoji('telegram')} Using bot token authentication")
+        else:
+            raise ValueError("Either SESSION_STRING or BOT_TOKEN must be provided")
+        
+        super().__init__(**client_params)
         
         # Premium features
         self.assets = assets
