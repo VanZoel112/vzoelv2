@@ -35,10 +35,21 @@ pip3 install --upgrade pip
 echo "🔧 Installing core framework..."
 pip3 install pyrogram==2.0.106 tgcrypto==1.2.5
 
-# Install all requirements
-echo "⚡ Installing all requirements..."
+# Install requirements (step by step for better error handling)
+echo "⚡ Installing core requirements first..."
+if [ -f "requirements-minimal.txt" ]; then
+    pip3 install -r requirements-minimal.txt
+else
+    echo "⚠️  Minimal requirements not found, installing manually..."
+    pip3 install pyrogram tgcrypto aiofiles aiohttp PyYAML python-dotenv aiosqlite colorama
+fi
+
+echo "📚 Installing full requirements..."
 if [ -f "requirements.txt" ]; then
-    pip3 install -r requirements.txt
+    pip3 install -r requirements.txt --no-deps --force-reinstall || {
+        echo "⚠️  Some packages failed, trying without --no-deps..."
+        pip3 install -r requirements.txt
+    }
 else
     echo "❌ requirements.txt not found"
     exit 1
