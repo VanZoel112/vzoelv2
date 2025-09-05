@@ -151,9 +151,13 @@ async def show_system_status(client: Client, message: Message):
             f"{emoji('aktif')} **Live Statistics:**",
             f"• Session Uptime: {bold(uptime)}",
             f"• Total Logs: {bold(str(system_status['session_stats']['total_logs']))}",
-            f"• Error Rate: {bold(f\"{(system_status['session_stats']['error_logs'] / max(system_status['session_stats']['total_logs'], 1) * 100):.1f}%\")}",
-            f"• Users Tracked: {bold(str(len(user_logger.user_activities)))}",
         ]
+        
+        error_rate = (system_status['session_stats']['error_logs'] / max(system_status['session_stats']['total_logs'], 1) * 100)
+        status_lines.extend([
+            f"• Error Rate: {bold(f'{error_rate:.1f}%')}",
+            f"• Users Tracked: {bold(str(len(user_logger.user_activities)))}",
+        ])
         
         if health_status['issues']:
             status_lines.extend([
