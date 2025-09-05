@@ -219,12 +219,15 @@ async def image_info_command(client: Client, message: Message):
                 valid_count += 1
                 total_size += img_info.get('size_mb', 0)
                 
+                dimensions = f"{img_info['width']}x{img_info['height']}"
+                size_mb = f"{img_info['size_mb']:.2f}MB"
+                
                 info_lines.extend([
                     f"{emoji('utama')} **{name.upper()}**",
                     f"  • Path: `{path}`",
-                    f"  • Dimensions: {bold(f\"{img_info['width']}x{img_info['height']}\")}",
+                    f"  • Dimensions: {bold(dimensions)}",
                     f"  • Format: {bold(img_info['format'])}",
-                    f"  • Size: {bold(f\"{img_info['size_mb']:.2f}MB\")}",
+                    f"  • Size: {bold(size_mb)}",
                     f"  • Aspect Ratio: {bold(str(img_info['aspect_ratio']))}",
                     f"  • Telegram Ready: {bold('✓' if not img_info['needs_resize'] else 'Needs Resize')}",
                     ""
@@ -289,9 +292,10 @@ async def optimize_images_command(client: Client, message: Message):
                 ["Add images to vzoel/ directory", "Supported formats: .jpg, .png, .webp"]
             )
         else:
+            success_rate = (results['success_count']/results['total']*100)
             success_details = [
                 f"Processed: {bold(str(results['success_count']))}/{results['total']} images",
-                f"Success Rate: {bold(f\"{(results['success_count']/results['total']*100):.1f}%\")}",
+                f"Success Rate: {bold(f'{success_rate:.1f}%')}",
                 f"Output: vzoel/processed/ directory"
             ]
             
