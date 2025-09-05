@@ -94,8 +94,9 @@ class PremiumPingSystem:
         else:
             message_text = "VZOEL ASSISTANT anti delay"
         
+        color_name = color['name'].upper()
         pink_lines = [
-            f"{color['emoji']} {bold(f\"COLOR: {color['name'].upper()}\")}",
+            f"{color['emoji']} {bold(f'COLOR: {color_name}')}",
             "",
             f"{emoji('adder2')} {message_text}",
             "",
@@ -103,7 +104,7 @@ class PremiumPingSystem:
             f"{emoji('centang')} **Anti-Lag:** {bold('Activated')}",
             f"{emoji('utama')} **Optimization:** {bold('Premium Level')}",
             "",
-            f"{color['emoji']} {italic(f'Powered by {color[\"name\"]} Energy')}"
+            f"{color['emoji']} {italic(f'Powered by {color_name} Energy')}"
         ]
         
         return "\n".join(pink_lines)

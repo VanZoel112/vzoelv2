@@ -397,7 +397,7 @@ async def stop_tagall_handler(client: VzoelClient, message: Message):
             "",
             f"{emoji('telegram')} **Restart:** Use {monospace('.tagall message')}",
             "",
-            f"{italic('TagAll system halted by Vzoel Fox\\'s')}"
+            f"{italic('TagAll system halted by Vzoel Fox\u0027s')}"
         ]
     else:
         stop_message = [
@@ -406,11 +406,11 @@ async def stop_tagall_handler(client: VzoelClient, message: Message):
             f"{emoji('proses')} **Status:** No TagAll sessions running",
             f"{emoji('telegram')} **Start:** Use {monospace('.tagall message')}",
             "",
-            f"{italic('TagAll system ready by Vzoel Fox\\'s')}"
+            f"{italic('TagAll system ready by Vzoel Fox\u0027s')}"
         ]
     
     await message.reply_text(
-        "\\n".join(stop_message),
+        "\n".join(stop_message),
         parse_mode=ParseMode.MARKDOWN
     )
     

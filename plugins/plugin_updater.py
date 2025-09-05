@@ -8,7 +8,7 @@ Created by: Vzoel Fox's Assistant
 import os
 import json
 import shutil
-import aiohttp
+import requests
 import asyncio
 import hashlib
 import importlib
