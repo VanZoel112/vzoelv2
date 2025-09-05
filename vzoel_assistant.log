@@ -153,3 +153,6 @@
 2025-09-05 16:21:39,929 - 🎚 pyrogram.session.auth - INFO - Start creating a new auth key on DC5
 2025-09-05 16:21:39,930 - 🎚 pyrogram.connection.connection - INFO - Connecting...
 2025-09-05 16:21:40,027 - 🎚 pyrogram.connection.connection - INFO - Connected! Production DC5 - IPv4
+2025-09-05 16:35:01,426 - 🎚 pyrogram.session.auth - INFO - Start creating a new auth key on DC2
+2025-09-05 16:35:01,428 - 🎚 pyrogram.connection.connection - INFO - Connecting...
+2025-09-05 16:35:01,467 - 🎚 pyrogram.connection.connection - INFO - Connected! Production DC2 - IPv4
