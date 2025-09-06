@@ -38,6 +38,7 @@ from pyrogram.errors import (
 # =================================================================
 from utils.assets import VzoelAssets, vzoel_msg, bold, italic, emoji
 from utils.error_handler import ErrorHandler, safe_send_message, suppress_peer_errors
+from utils.filters import vzoel_command
 
 # Initialize premium assets
 assets = VzoelAssets()
@@ -313,7 +314,7 @@ app = None
 # 6. CORE COMMAND HANDLERS WITH PREMIUM STYLING
 # =================================================================
 
-@Client.on_message(filters.command("start") & filters.private)
+@Client.on_message(vzoel_command("start") & filters.private)
 async def start_command(client: VzoelAssistant, message: Message):
     """Enhanced start command with premium welcome"""
     
@@ -342,7 +343,7 @@ async def start_command(client: VzoelAssistant, message: Message):
     
     await message.reply_text("\n".join(welcome_text))
 
-@Client.on_message(filters.command("ping"))
+@Client.on_message(vzoel_command("ping"))
 async def ping_command(client: VzoelAssistant, message: Message):
     """Enhanced ping command with premium response"""
     
@@ -367,7 +368,7 @@ async def ping_command(client: VzoelAssistant, message: Message):
     
     await sent.edit_text(final_msg)
 
-@Client.on_message(filters.command("alive"))
+@Client.on_message(vzoel_command("alive"))
 async def alive_command(client: VzoelAssistant, message: Message):
     """Enhanced alive command showing premium status"""
     
@@ -393,7 +394,7 @@ async def alive_command(client: VzoelAssistant, message: Message):
     
     await message.reply_text("\n".join(alive_text))
 
-@Client.on_message(filters.command("info"))
+@Client.on_message(vzoel_command("info"))
 async def info_command(client: VzoelAssistant, message: Message):
     """Show comprehensive bot information"""
     

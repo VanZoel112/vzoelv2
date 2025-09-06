@@ -10,6 +10,7 @@ import asyncio
 from typing import Dict, List, Any, Optional
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from utils.filters import vzoel_command
 from pyrogram.enums import ParseMode
 
 # Import sistem terintegrasi premium
