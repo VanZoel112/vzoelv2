@@ -102,7 +102,7 @@ class VzoelConfig:
     
     @property
     def api_id(self) -> int:
-        return self._config.get("telegram_api", {}).get("api_id", 24194005)
+        return self._config.get("telegram_api", {}).get("api_id", 29919905)
     
     @property
     def api_hash(self) -> str:

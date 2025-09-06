@@ -18,7 +18,7 @@ class VzoelSessionGenerator:
     
     def __init__(self):
         # API credentials for user authentication ONLY
-        self.api_id = 24194005
+        self.api_id = 29919905
         self.api_hash = "717957f0e3ae20a7db004d08b66bfd30"
         self.session_name = "vzoel_user_session"
     
