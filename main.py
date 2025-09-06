@@ -193,12 +193,12 @@ class VzoelAssistant(Client):
             "parse_mode": ParseMode.MARKDOWN
         }
         
-        # Use session string - userbot only
-        if self.session_string:
-            client_params["session_string"] = self.session_string
-            print(f"✅ Using session string authentication")
-        else:
-            raise ValueError("No session string available - will generate session")
+        # PURE USERBOT - session string only
+        if not self.session_string:
+            raise ValueError("No session string available - this is a USERBOT, not a BOT")
+        
+        client_params["session_string"] = self.session_string
+        print(f"✅ USERBOT: Using session string authentication for user account")
         
         super().__init__(**client_params)
         
@@ -249,7 +249,7 @@ class VzoelAssistant(Client):
         startup_msg = self._get_startup_message(me)
         
         print(startup_msg)
-        logging.info("Vzoel Assistant started successfully")
+        logging.info("Vzoel Userbot started successfully for user account")
         
         # Send startup notification if log group configured
         try:
@@ -269,22 +269,23 @@ class VzoelAssistant(Client):
         startup_lines = [
             f"{signature}",
             "",
-            f"✅ **Bot Information:**",
+            f"👤 **User Account:**",
             f"  • Name: **{me.first_name}**",
             f"  • Username: @{me.username}",
             f"  • ID: `{me.id}`",
+            f"  • Type: **USERBOT** (Personal Account Automation)",
             "",
-            f"⚡ **Project Information:**",
-            f"  • Name: **{project_info.get('project_name', 'VZOEL ASSISTANT')}**",
+            f"⚡ **Userbot Information:**",
+            f"  • Assistant: **{project_info.get('project_name', 'VZOEL ASSISTANT')}**",
             f"  • Version: `{project_info.get('version', '1.0.0')}`",
-            f"  • Description: _{project_info.get('description', 'Premium Assistant')}_",
+            f"  • Mode: _{project_info.get('description', 'Personal Account Assistant')}_",
             "",
-            f"🔥 **System Status:**",
+            f"🔥 **Automation Status:**",
             f"  • Performance: **{'uvloop Optimized' if UVLOOP_AVAILABLE else 'Standard Event Loop'}**",
-            f"  • Assets: **Premium Collection Loaded**",
-            f"  • Parse Mode: **Enhanced Markdown**",
+            f"  • Features: **Premium Collection Active**",
+            f"  • Commands: **Ready for Personal Use**",
             "",
-            f"🚀 **Ready to serve!**",
+            f"🚀 **Personal Assistant Ready!**",
             "",
             f"_{branding_info.get('footer_text', 'Created by VZLfxs @Lutpan')}_"
         ]
@@ -328,15 +329,15 @@ async def start_command(client: VzoelAssistant, message: Message):
         f"Halo **{user.first_name}**! 🔥",
         "",
         f"Selamat datang di **{branding.get('assistant_display_name', 'VZOEL ASSISTANT')}**",
-        f"Premium bot assistant dengan fitur-fitur canggih!",
+        f"Personal userbot automation untuk akun Telegram kamu!",
         "",
-        f"✅ **Fitur Utama:**",
-        f"  • Premium styling & emoji",
+        f"✅ **Fitur Userbot:**",
+        f"  • Commands automation untuk akun personal",
+        f"  • Premium styling & emoji collection",  
         f"  • High-performance dengan uvloop",
         f"  • Interactive command system",
-        f"  • Enhanced markdown support",
         "",
-        f"Ketik /help untuk melihat semua perintah yang tersedia.",
+        f"Ketik !help atau .help untuk melihat semua perintah userbot.",
         "",
         f"_{branding.get('footer_text', 'Created by VZLfxs @Lutpan')}_"
     ]
@@ -378,18 +379,19 @@ async def alive_command(client: VzoelAssistant, message: Message):
     alive_text = [
         f"{client.assets.vzoel_signature()}",
         "",
-        f"✅ **Bot Status:** **ONLINE**",
+        f"👤 **Personal Account:** **@{me.username}**",
+        f"🤖 **Userbot Status:** **ACTIVE**",
         f"⚡ **Version:** **{project_info.get('version', '1.0.0')}**",
         f"✨ **Uptime:** {client.get_uptime()}",
         f"🚀 **Performance:** **{'uvloop Optimized' if UVLOOP_AVAILABLE else 'Standard Event Loop'}**",
         "",
-        f"**Premium Features Active:**",
-        f"🔥 Enhanced Markdown Styling",
-        f"🔵 Premium Emoji Collection",
-        f"🟡 Interactive Command System", 
-        f"🔴 High-Performance Framework",
+        f"**Personal Automation Features:**",
+        f"🔥 Advanced Command Processing",
+        f"🔵 Premium Styling Collection",
+        f"🟡 Interactive Response System", 
+        f"🔴 High-Performance Automation",
         "",
-        f"_Ready to serve with premium quality!_"
+        f"_Personal assistant for {me.first_name} is ready!_"
     ]
     
     await message.reply_text("\n".join(alive_text))
@@ -405,24 +407,25 @@ async def info_command(client: VzoelAssistant, message: Message):
     info_text = [
         f"{client.assets.vzoel_signature()}",
         "",
-        f"✅ **Bot Information:**",
+        f"👤 **User Account Information:**",
         f"  • Name: **{me.first_name}**",
         f"  • Username: @{me.username}",
         f"  • ID: `{me.id}`",
-        f"  • Version: **{project_info.get('version', '1.0.0')}**",
+        f"  • Account Type: **Personal Userbot**",
         "",
-        f"⚡ **System Information:**",
+        f"🤖 **Userbot System:**",
         f"  • Framework: **Pyrogram + uvloop**",
+        f"  • Version: **{project_info.get('version', '1.0.0')}**",
         f"  • Parse Mode: **Enhanced Markdown**",
         f"  • Uptime: {client.get_uptime()}",
         "",
-        f"🔥 **Premium Assets:**",
+        f"🔥 **Premium Features:**",
         f"  • Font Styles: **{asset_info['fonts']['total_styles']}**",
         f"  • Premium Emojis: **{asset_info['emojis']['total_emojis']}**",
         f"  • Categories: **{asset_info['emojis']['total_categories']}**",
-        f"  • Version: **{asset_info['version']}**",
+        f"  • Asset Version: **{asset_info['version']}**",
         "",
-        f"_Enhanced by VZLfxs @Lutpan Premium Collection_"
+        f"_Personal automation enhanced by VZLfxs @Lutpan_"
     ]
     
     await message.reply_text("\n".join(info_text))
@@ -453,23 +456,23 @@ async def main():
         # Initialize client with session
         app = VzoelAssistant(session_string, api_id, api_hash)
         
-        # Premium startup sequence
-        print(f"\n🔄 Starting Vzoel Assistant...")
-        print(f"⚡ Initializing premium systems...")
+        # Premium userbot startup sequence
+        print(f"\n🔄 Starting Vzoel Userbot...")
+        print(f"⚡ Initializing personal account automation...")
         
         # Start the bot
         await app.start()
         
-        # Keep running with premium status
-        print(f"✅ All systems ready!")
-        print(f"🔥 Vzoel Assistant is now running with premium features!")
+        # Keep running with userbot status
+        print(f"✅ Personal userbot ready!")
+        print(f"🔥 Vzoel Userbot is active for your account!")
         
         # Keep alive
         await asyncio.Event().wait()
         
     except KeyboardInterrupt:
-        print(f"\n🔄 Shutting down Vzoel Assistant...")
-        logging.info("Bot stopped by user")
+        print(f"\n🔄 Shutting down Vzoel Userbot...")
+        logging.info("Userbot stopped by user")
         
     except Exception as e:
         error_msg = f"❌ Critical error: {e}"
@@ -481,7 +484,7 @@ async def main():
         # Cleanup
         if app and app.is_connected:
             await app.stop()
-        print(f"✅ Vzoel Assistant stopped gracefully")
+        print(f"✅ Vzoel Userbot stopped gracefully")
 
 # =================================================================
 # 8. APPLICATION ENTRY POINT
@@ -493,8 +496,8 @@ if __name__ == "__main__":
         banner = [
             "",
             "╔" + "═" * 50 + "╗",
-            "║" + f"{'VZOEL ASSISTANT v2 - PREMIUM':^50}" + "║",
-            "║" + f"{'Enhanced with Auto Session + uvloop':^50}" + "║", 
+            "║" + f"{'VZOEL USERBOT v2 - PREMIUM':^50}" + "║",
+            "║" + f"{'Personal Account Automation + uvloop':^50}" + "║", 
             "║" + f"{'Created by: VZLfxs @Lutpan':^50}" + "║",
             "╚" + "═" * 50 + "╝",
             ""
