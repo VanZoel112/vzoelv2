@@ -42,127 +42,20 @@ from utils.assets import VzoelAssets, vzoel_msg, bold, italic, emoji
 assets = VzoelAssets()
 
 # =================================================================
-# 3. AUTO SESSION GENERATOR
+# 3. SESSION IMPORT HELPER
 # =================================================================
-class AutoSessionSetup:
-    """Auto session setup untuk userbot"""
-    
-    def __init__(self):
-        # Default API credentials untuk session generation
-        self.api_id = 24194005
-        self.api_hash = "717957f0e3ae20a7db004d08b66bfd30"
-        self.session_name = "vzoel_assistant_session"
-    
-    def display_session_banner(self):
-        """Display session setup banner"""
-        print("\n" + "═" * 60)
-        print("║      VZOEL ASSISTANT v2 - AUTO SESSION SETUP      ║")
-        print("║        Setup userbot session dengan mudah          ║")
-        print("║           Created by: VZLfxs @Lutpan               ║")
-        print("═" * 60 + "\n")
-    
-    def get_phone_number(self):
-        """Get phone number input"""
-        while True:
-            phone = input("📱 Masukkan nomor HP (dengan kode negara, contoh: +6283199218067): ").strip()
-            if phone.startswith('+') and len(phone) >= 10:
-                print(f"✅ Nomor HP: {phone}")
-                return phone
-            else:
-                print("❌ Format nomor HP salah! Gunakan format +628xxxxxxxxxx")
-    
-    def get_verification_code(self):
-        """Get verification code input"""
-        while True:
-            try:
-                code = input("🔑 Masukkan kode verifikasi (5 digit): ").strip()
-                if len(code) == 5 and code.isdigit():
-                    return code
-                else:
-                    print("❌ Kode verifikasi harus 5 digit angka!")
-            except KeyboardInterrupt:
-                print("\n❌ Dibatalkan oleh user")
-                return None
-    
-    def get_password(self):
-        """Get 2FA password if needed"""
-        password = input("🔐 Masukkan 2FA password (kosongkan jika tidak ada): ").strip()
-        return password if password else None
-    
-    async def create_session(self):
-        """Generate session string dengan phone number"""
-        try:
-            self.display_session_banner()
-            
-            print("📋 Setup Information:")
-            print(f"   • API ID: {self.api_id}")
-            print(f"   • API Hash: {self.api_hash}")
-            print(f"   • Session Name: {self.session_name}")
-            print("")
-            
-            # Get phone number
-            phone_number = self.get_phone_number()
-            
-            print("🔄 Membuat client Pyrogram...")
-            client = Client(
-                name=self.session_name,
-                api_id=self.api_id,
-                api_hash=self.api_hash
-            )
-            
-            print("📞 Mengirim kode verifikasi...")
-            await client.connect()
-            sent_code = await client.send_code(phone_number)
-            
-            print(f"✅ Kode verifikasi dikirim ke {phone_number}")
-            print("💬 Cek SMS/Telegram untuk mendapatkan kode verifikasi")
-            
-            # Get verification code
-            code = self.get_verification_code()
-            if not code:
-                await client.disconnect()
-                return None, None, None
-            
-            print("🔑 Memverifikasi kode...")
-            try:
-                await client.sign_in(phone_number, sent_code.phone_code_hash, code)
-                print("✅ Login berhasil!")
-                
-            except SessionPasswordNeeded:
-                print("🔐 2FA diperlukan...")
-                password = self.get_password()
-                if password:
-                    await client.check_password(password)
-                    print("✅ 2FA berhasil!")
-                else:
-                    print("❌ 2FA diperlukan tapi tidak dimasukkan")
-                    await client.disconnect()
-                    return None, None, None
-                    
-            except (PhoneCodeInvalid, PhoneCodeExpired) as e:
-                print(f"❌ Error kode verifikasi: {e}")
-                await client.disconnect()
-                return None, None, None
-            
-            # Get user info
-            me = await client.get_me()
-            print(f"\n🎉 Session berhasil dibuat untuk:")
-            print(f"   • Nama: {me.first_name} {me.last_name or ''}")
-            print(f"   • Username: @{me.username or 'Tidak ada'}")
-            print(f"   • ID: {me.id}")
-            
-            # Get session string
-            session_string = await client.export_session_string()
-            await client.disconnect()
-            
-            return session_string, self.api_id, self.api_hash
-            
-        except PhoneNumberInvalid:
-            print("❌ Nomor HP tidak valid")
-            return None, None, None
-        except Exception as e:
-            print(f"❌ Error: {e}")
-            return None, None, None
+def load_session_from_file():
+    """Load session string from vzoel_session.txt"""
+    try:
+        if os.path.exists('vzoel_session.txt'):
+            with open('vzoel_session.txt', 'r') as f:
+                session_string = f.read().strip()
+                if session_string:
+                    print("✅ Session string loaded from vzoel_session.txt")
+                    return session_string
+    except Exception as e:
+        print(f"❌ Error loading session file: {e}")
+    return None
 
 # =================================================================
 # 4. CONFIGURATION MANAGEMENT
@@ -225,11 +118,17 @@ class VzoelConfig:
     
     @property
     def session_string(self) -> Optional[str]:
-        """Get session string from config or env"""
-        # Try environment first
+        """Get session string from multiple sources"""
+        # Try file first (from session_generate.py)
+        file_session = load_session_from_file()
+        if file_session:
+            return file_session
+        
+        # Try environment second
         env_session = os.getenv("SESSION_STRING")
         if env_session:
             return env_session
+            
         # Fall back to config
         return self._config.get("bot_credentials", {}).get("session_string")
     
@@ -524,19 +423,12 @@ async def main():
         
         if not session_string:
             print(f"\n❌ No session string found!")
-            print(f"🔄 Starting automatic session generation...")
-            
-            # Generate session automatically
-            session_setup = AutoSessionSetup()
-            session_string, api_id, api_hash = await session_setup.create_session()
-            
-            if not session_string:
-                print(f"\n❌ Failed to generate session string")
-                return
-            
-            print(f"\n✅ Session generated successfully!")
-            print(f"💡 Session string: {session_string[:20]}...")
-            print(f"🚀 Starting userbot...")
+            print(f"💡 Please generate session first:")
+            print(f"   1. Run: python3 session_generate.py")
+            print(f"   2. Follow the prompts to create session")
+            print(f"   3. Then run: python3 main.py")
+            print(f"\n🔄 Session will be saved to vzoel_session.txt")
+            return
         
         # Initialize client with session
         app = VzoelAssistant(session_string, api_id, api_hash)
