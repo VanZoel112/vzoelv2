@@ -37,9 +37,13 @@ from pyrogram.errors import (
 # 2. PREMIUM ASSET SYSTEM IMPORT
 # =================================================================
 from utils.assets import VzoelAssets, vzoel_msg, bold, italic, emoji
+from utils.error_handler import ErrorHandler, safe_send_message, suppress_peer_errors
 
 # Initialize premium assets
 assets = VzoelAssets()
+
+# Setup global error handling
+suppress_peer_errors()
 
 # =================================================================
 # 3. SESSION IMPORT HELPER
@@ -207,6 +211,18 @@ class VzoelAssistant(Client):
     
     def _setup_logging(self):
         """Setup enhanced logging with premium styling"""
+        # Create custom filter to reduce peer ID error noise
+        class PeerErrorFilter(logging.Filter):
+            def filter(self, record):
+                message = record.getMessage()
+                # Suppress specific peer ID errors that aren't critical
+                if "Task exception was never retrieved" in message and "Peer id invalid" in message:
+                    return False
+                if "ID not found" in message and "KeyError" in message:
+                    return False
+                return True
+        
+        # Setup logging with filter
         logging.basicConfig(
             level=logging.INFO,
             format=f'%(asctime)s - ✨ %(name)s - %(levelname)s - %(message)s',
@@ -215,6 +231,11 @@ class VzoelAssistant(Client):
                 logging.FileHandler('vzoel_assistant.log')
             ]
         )
+        
+        # Add filter to reduce noise
+        peer_filter = PeerErrorFilter()
+        for handler in logging.getLogger().handlers:
+            handler.addFilter(peer_filter)
     
     async def start(self):
         """Enhanced start method with premium welcome"""
@@ -233,10 +254,8 @@ class VzoelAssistant(Client):
         try:
             log_group_id = config._config.get("logging", {}).get("log_group_id")
             if log_group_id:
-                await self.send_message(
-                    chat_id=log_group_id,
-                    text=startup_msg
-                )
+                # Try to send to log group using safe send
+                await safe_send_message(self, log_group_id, startup_msg)
         except Exception as e:
             logging.warning(f"Could not send startup notification: {e}")
     
