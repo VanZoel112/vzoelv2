@@ -107,8 +107,7 @@ class AutoSessionSetup:
             client = Client(
                 name=self.session_name,
                 api_id=self.api_id,
-                api_hash=self.api_hash,
-                phone_number=phone_number
+                api_hash=self.api_hash
             )
             
             print("📞 Mengirim kode verifikasi...")
@@ -218,11 +217,11 @@ class VzoelConfig:
     
     @property
     def bot_token(self) -> str:
-        return self._config["bot_credentials"]["bot_token"]
+        return self._config.get("bot_credentials", {}).get("bot_token", "")
     
     @property
     def session_name(self) -> str:
-        return self._config["bot_credentials"].get("session_name", "vzoel_session")
+        return self._config.get("bot_credentials", {}).get("session_name", "vzoel_session")
     
     @property
     def session_string(self) -> Optional[str]:
@@ -232,7 +231,7 @@ class VzoelConfig:
         if env_session:
             return env_session
         # Fall back to config
-        return self._config["bot_credentials"].get("session_string")
+        return self._config.get("bot_credentials", {}).get("session_string")
     
     @property
     def user_session_string(self) -> Optional[str]:
@@ -242,7 +241,7 @@ class VzoelConfig:
         if env_session:
             return env_session
         # Fall back to config
-        return self._config["bot_credentials"].get("user_session_string")
+        return self._config.get("bot_credentials", {}).get("user_session_string")
     
     @property
     def phone_number(self) -> Optional[str]:
@@ -252,11 +251,11 @@ class VzoelConfig:
         if env_phone:
             return env_phone
         # Fall back to config
-        return self._config["bot_credentials"].get("phone_number")
+        return self._config.get("bot_credentials", {}).get("phone_number")
     
     @property
     def founder_id(self) -> int:
-        return self._config["owner_info"]["founder_id"]
+        return self._config.get("owner_info", {}).get("founder_id", 0)
     
     @property
     def project_info(self) -> Dict[str, Any]:
@@ -290,17 +289,12 @@ class VzoelAssistant(Client):
             "parse_mode": ParseMode.MARKDOWN
         }
         
-        # Use session string if available
+        # Use session string - userbot only
         if self.session_string:
             client_params["session_string"] = self.session_string
             print(f"✅ Using session string authentication")
         else:
-            # Fallback to bot token if available
-            if config.bot_token:
-                client_params["bot_token"] = config.bot_token
-                print(f"🤖 Using bot token authentication")
-            else:
-                raise ValueError("No authentication method available - will generate session")
+            raise ValueError("No session string available - will generate session")
         
         super().__init__(**client_params)
         
